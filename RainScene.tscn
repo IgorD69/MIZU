@@ -4,20 +4,20 @@
 [ext_resource type="Script" uid="uid://7xf25gcirk6i" path="res://rain_scene.gd" id="1_iweig"]
 [ext_resource type="AudioStream" uid="uid://jeiuh78wv481" path="res://Rain.mp3" id="2_8d6e1"]
 [ext_resource type="Script" uid="uid://357j2jn1siuy" path="res://audio_stream_player.gd" id="3_sucyx"]
+[ext_resource type="FontFile" uid="uid://cxljtk2ep3f06" path="res://Font/bytebounce/ByteBounce.ttf" id="5_iweig"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8d6e1"]
 shader = ExtResource("1_7nwix")
-shader_parameter/rain_amount = 300.0
-shader_parameter/near_rain_length = 0.00999999977648
-shader_parameter/far_rain_length = 0.032000000821479996
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.061000002198980004
+shader_parameter/far_rain_length = 0.00999999977648
 shader_parameter/near_rain_width = 0.10000000149012
 shader_parameter/far_rain_width = 0.5
 shader_parameter/near_rain_transparency = 0.51200002106012
 shader_parameter/far_rain_transparency = 0.5
-shader_parameter/rain_color = Color(0.18431373, 0.16078432, 0.3882353, 1)
+shader_parameter/rain_color = Color(0.5803922, 0.6901961, 0.85490197, 1)
 shader_parameter/base_rain_speed = 0.5
-shader_parameter/additional_rain_speed = 0.5
-shader_parameter/slant = 0.2
+shader_parameter/slant = 0.2510000594224999
 
 [node name="Main" type="Control" unique_id=428362994 node_paths=PackedStringArray("rain_shader_rect")]
 layout_mode = 3
@@ -28,6 +28,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_iweig")
 rain_shader_rect = NodePath("Rain")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2067740858]
+stream = ExtResource("2_8d6e1")
+autoplay = true
+mix_target = 1
+script = ExtResource("3_sucyx")
 
 [node name="TopPart" type="ColorRect" parent="." unique_id=2122589920]
 layout_mode = 1
@@ -44,17 +50,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 517.0
+offset_top = 851.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 1)
-color = Color(0.4392157, 0.5294118, 0.49803922, 1)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2067740858]
-stream = ExtResource("2_8d6e1")
-autoplay = true
-mix_target = 1
-script = ExtResource("3_sucyx")
+color = Color(0.18431373, 0.16078432, 0.3882353, 1)
 
 [node name="Rain" type="ColorRect" parent="." unique_id=910612248]
 material = SubResource("ShaderMaterial_8d6e1")
@@ -64,3 +64,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=645557859]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -924.0
+offset_top = -81.0
+offset_right = -723.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.5803922, 0.6901961, 0.85490197, 0.29411766)
+theme_override_fonts/font = ExtResource("5_iweig")
+theme_override_font_sizes/font_size = 84
+text = "Swipe"

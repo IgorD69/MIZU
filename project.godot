@@ -13,7 +13,18 @@ config_version=5
 config/name="RainApp"
 run/main_scene="uid://c5q0i65cetjd5"
 config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=120
+boot_splash/bg_color=Color(0.18431373, 0.16078432, 0.3882353, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input_devices]
 
