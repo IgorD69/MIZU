@@ -244,6 +244,7 @@ offset_bottom = 145.0
 script = ExtResource("9_gj8sf")
 
 [node name="Settings_Panel" type="ColorRect" parent="MenuButton" unique_id=125808883]
+visible = false
 layout_mode = 1
 offset_left = 2.0
 offset_top = 123.0
