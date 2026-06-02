@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bxldkfmb8ykr"]
+
+[ext_resource type="Shader" uid="uid://cldcur1b7u68p" path="res://Rain.gdshader" id="1_7nwix"]
+[ext_resource type="Script" uid="uid://7xf25gcirk6i" path="res://Scripts/rain_scene.gd" id="1_iweig"]
+[ext_resource type="AudioStream" uid="uid://cdwwj10i1500e" path="res://Audio/Thunder1.mp3" id="2_avrux"]
+[ext_resource type="AudioStream" uid="uid://dujq2j528bui0" path="res://Audio/Rain.mp3" id="2_u131m"]
+[ext_resource type="AudioStream" uid="uid://se5xau0y5ynk" path="res://Audio/Thunder2.mp3" id="3_gj8sf"]
+[ext_resource type="Script" uid="uid://357j2jn1siuy" path="res://Scripts/audio_stream_player.gd" id="3_sucyx"]
+[ext_resource type="AudioStream" uid="uid://by7bc43gcgjuf" path="res://Audio/Thunder3.mp3" id="4_0hart"]
+[ext_resource type="FontFile" uid="uid://cxljtk2ep3f06" path="res://Font/bytebounce/ByteBounce.ttf" id="5_iweig"]
+
+[sub_resource type="Gradient" id="Gradient_iweig"]
+offsets = PackedFloat32Array(0.66793895, 1)
+colors = PackedColorArray(0.4392157, 0.6627451, 0.6313726, 1, 0.8117647, 0.8784314, 0.7647059, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_84wg4"]
+gradient = SubResource("Gradient_iweig")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8d6e1"]
+shader = ExtResource("1_7nwix")
+shader_parameter/rain_amount = 300.00001425
+shader_parameter/near_rain_length = 0.06100000219898
+shader_parameter/far_rain_length = 0.00999999977648
+shader_parameter/near_rain_width = 0.10000000149012
+shader_parameter/far_rain_width = 0.5
+shader_parameter/near_rain_transparency = 0.51200002106012
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.61960787, 0.75686276, 0.6392157, 1)
+shader_parameter/base_rain_speed = 6.3400002978901195
+shader_parameter/slant = 0.2
+shader_parameter/rain_density = 1.0
+
+[node name="Main" type="Control" unique_id=428362994 node_paths=PackedStringArray("rain_shader_rect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iweig")
+rain_shader_rect = NodePath("Rain")
+thunder_sound_array = Array[AudioStreamMP3]([ExtResource("2_avrux"), ExtResource("3_gj8sf"), ExtResource("4_0hart")])
+
+[node name="RainSound" type="AudioStreamPlayer" parent="." unique_id=2067740858]
+stream = ExtResource("2_u131m")
+autoplay = true
+mix_target = 1
+script = ExtResource("3_sucyx")
+
+[node name="TopPart" type="ColorRect" parent="." unique_id=2122589920]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 1)
+color = Color(0.2509804, 0.4745098, 0.54901963, 1)
+
+[node name="BG" type="TextureRect" parent="." unique_id=893998995]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_84wg4")
+
+[node name="BottonPart" type="ColorRect" parent="." unique_id=1184982160]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 851.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 1)
+color = Color(0.12156863, 0.21176471, 0.23921569, 1)
+
+[node name="Rain" type="ColorRect" parent="." unique_id=910612248]
+material = SubResource("ShaderMaterial_8d6e1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=645557859]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -924.0
+offset_top = -81.0
+offset_right = -723.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.8117647, 0.8784314, 0.7647059, 0.23921569)
+theme_override_fonts/font = ExtResource("5_iweig")
+theme_override_font_sizes/font_size = 84
+text = "Swipe"
+
+[node name="ThunderTimer" type="Timer" parent="." unique_id=883433701]
+
+[node name="ThunderSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=660961999]
