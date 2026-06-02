@@ -9,7 +9,9 @@ extends Control
 @onready var thunder_timer: Timer = $ThunderTimer
 @onready var thunder_sound_player: AudioStreamPlayer = $ThunderSoundPlayer
 
+@onready var thunder_freq: HSlider = $MenuButton/Settings_Panel/ThunderFreq
 
+var thunder_freq_amount: float = 2
 var speed_min : float = 1.0
 var speed_max : float = 7.0
 var slant_min : float = -1.0
@@ -44,7 +46,7 @@ func _ready():
 		_update_audio_pitch(current_speed)
 
 	thunder_timer.timeout.connect(_on_thunder_timer_timeout)
-	thunder_timer.start(7.0)
+	thunder_timer.start(thunder_freq_amount)
 
 func _on_thunder_timer_timeout() -> void:
 	if thunder_sound_array.is_empty():
@@ -114,3 +116,24 @@ func _update_audio_pitch(speed: float) -> void:
 	var color_dark = Color(0.2, 0.2, 0.2, 1.0) 
 	
 	bg_gradient.modulate = color_bright.lerp(color_dark, t)
+
+
+func _on_thunder_freq_value_changed(value: float) -> void:
+	var min_thunder_time = 3.0 
+	var max_thunder_time = 30.0
+	
+	thunder_freq_amount = remap(value, 1.0, 5.0, max_thunder_time, min_thunder_time)
+	
+	thunder_timer.wait_time = thunder_freq_amount
+	
+	if not thunder_timer.is_stopped():
+		thunder_timer.start(thunder_freq_amount)
+		
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		thunder_timer.start(thunder_freq_amount)
+	else:
+		thunder_timer.stop()
+		
+		

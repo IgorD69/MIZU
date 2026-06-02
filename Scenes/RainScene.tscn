@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://357j2jn1siuy" path="res://Scripts/audio_stream_player.gd" id="3_sucyx"]
 [ext_resource type="AudioStream" uid="uid://by7bc43gcgjuf" path="res://Audio/Thunder3.mp3" id="4_0hart"]
 [ext_resource type="FontFile" uid="uid://cxljtk2ep3f06" path="res://Font/bytebounce/ByteBounce.ttf" id="5_iweig"]
+[ext_resource type="Script" uid="uid://b4x2pmgmqqsed" path="res://Scripts/menu_button.gd" id="9_gj8sf"]
 
 [sub_resource type="Gradient" id="Gradient_iweig"]
 offsets = PackedFloat32Array(0.66793895, 1)
@@ -43,22 +44,16 @@ script = ExtResource("1_iweig")
 rain_shader_rect = NodePath("Rain")
 thunder_sound_array = Array[AudioStreamMP3]([ExtResource("2_avrux"), ExtResource("3_gj8sf"), ExtResource("4_0hart")])
 
+[node name="ThunderTimer" type="Timer" parent="." unique_id=883433701]
+
 [node name="RainSound" type="AudioStreamPlayer" parent="." unique_id=2067740858]
 stream = ExtResource("2_u131m")
 autoplay = true
 mix_target = 1
+parameters/looping = true
 script = ExtResource("3_sucyx")
 
-[node name="TopPart" type="ColorRect" parent="." unique_id=2122589920]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset_ratio = Vector2(0.5, 1)
-color = Color(0.2509804, 0.4745098, 0.54901963, 1)
+[node name="ThunderSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=660961999]
 
 [node name="BG" type="TextureRect" parent="." unique_id=893998995]
 layout_mode = 1
@@ -102,11 +97,93 @@ offset_right = -723.0
 offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.8117647, 0.8784314, 0.7647059, 0.23921569)
+theme_override_colors/font_color = Color(0.41365287, 0.40732726, 0.3560087, 1)
 theme_override_fonts/font = ExtResource("5_iweig")
 theme_override_font_sizes/font_size = 84
 text = "Swipe"
 
-[node name="ThunderTimer" type="Timer" parent="." unique_id=883433701]
+[node name="MenuButton" type="Button" parent="." unique_id=836890765]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 53.0
+offset_right = 146.0
+offset_bottom = 145.0
+script = ExtResource("9_gj8sf")
 
-[node name="ThunderSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=660961999]
+[node name="Settings_Panel" type="Panel" parent="MenuButton" unique_id=553797314]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 123.0
+offset_right = 449.0
+offset_bottom = 868.0
+
+[node name="Label2" type="Label" parent="MenuButton/Settings_Panel" unique_id=1249242555]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 42.0
+offset_right = 412.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.8117647, 0.8784314, 0.7647059, 1)
+theme_override_fonts/font = ExtResource("5_iweig")
+theme_override_font_sizes/font_size = 41
+text = "Thunder"
+
+[node name="ThunderFreq" type="HSlider" parent="MenuButton/Settings_Panel" unique_id=424841274]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 194.0
+offset_right = 258.01648
+offset_bottom = 210.0
+scale = Vector2(1.941704, 1.8400012)
+max_value = 10.0
+value = 3.0
+rounded = true
+
+[node name="Label3" type="Label" parent="MenuButton/Settings_Panel" unique_id=335080894]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 330.0
+offset_right = 272.0
+offset_bottom = 359.0
+theme_override_colors/font_color = Color(0.8117647, 0.8784314, 0.7647059, 1)
+theme_override_fonts/font = ExtResource("5_iweig")
+theme_override_font_sizes/font_size = 41
+text = "ScreenOff Time"
+
+[node name="ScreenOffSlider" type="HSlider" parent="MenuButton/Settings_Panel" unique_id=44632471]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 386.0
+offset_right = 258.01648
+offset_bottom = 402.0
+scale = Vector2(1.941704, 1.8400012)
+max_value = 7.0
+value = 1.0
+
+[node name="Label" type="Label" parent="MenuButton/Settings_Panel" unique_id=26905117]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 155.0
+offset_right = 412.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0.8117647, 0.8784314, 0.7647059, 1)
+theme_override_fonts/font = ExtResource("5_iweig")
+theme_override_font_sizes/font_size = 41
+text = "Thunder Frequency"
+
+[node name="CheckButton" type="CheckButton" parent="MenuButton/Settings_Panel" unique_id=500234226]
+layout_mode = 0
+offset_left = 181.00003
+offset_top = 34.0
+offset_right = 225.00003
+offset_bottom = 58.0
+scale = Vector2(2.48, 2.48)
+button_pressed = true
+
+[node name="ScreenTimeoutTimer" type="Timer" parent="MenuButton" unique_id=215868806]
+wait_time = 10.0
+
+[connection signal="pressed" from="MenuButton" to="MenuButton" method="_on_pressed"]
+[connection signal="toggled" from="MenuButton" to="MenuButton" method="_on_toggled"]
+[connection signal="value_changed" from="MenuButton/Settings_Panel/ThunderFreq" to="." method="_on_thunder_freq_value_changed"]
+[connection signal="toggled" from="MenuButton/Settings_Panel/CheckButton" to="." method="_on_check_button_toggled"]
