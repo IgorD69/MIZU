@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="RainApp"
-run/main_scene="uid://c5q0i65cetjd5"
+config/name="MIZU"
+run/main_scene="uid://bxldkfmb8ykr"
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=120
 run/low_processor_mode=true

@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://by7bc43gcgjuf" path="res://Audio/Thunder3.mp3" id="4_0hart"]
 [ext_resource type="FontFile" uid="uid://cxljtk2ep3f06" path="res://Font/bytebounce/ByteBounce.ttf" id="5_iweig"]
 [ext_resource type="Script" uid="uid://b4x2pmgmqqsed" path="res://Scripts/menu_button.gd" id="9_gj8sf"]
+[ext_resource type="Script" uid="uid://hpd8aar7ecrd" path="res://Scripts/screen_off_slider.gd" id="10_0hart"]
 
 [sub_resource type="Gradient" id="Gradient_iweig"]
 offsets = PackedFloat32Array(0.66793895, 1)
@@ -32,6 +33,138 @@ shader_parameter/rain_color = Color(0.61960787, 0.75686276, 0.6392157, 1)
 shader_parameter/base_rain_speed = 6.3400002978901195
 shader_parameter/slant = 0.2
 shader_parameter/rain_density = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0hart"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhjbv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="DPITexture" id="DPITexture_0hart"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_6dyqi"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".5\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_5ke2w"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_fd8rw"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".25\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_qhjbv"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\"/></svg>
+"
+base_scale = 10.0
+
+[sub_resource type="DPITexture" id="DPITexture_d38nh"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".37\" rx=\"7\"/><circle cx=\"8\" cy=\"8\" r=\"5\" fill=\"#1a1a1a\" fill-opacity=\".5\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_e1oqt"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"32\" height=\"16\"><g fill-opacity=\".25\"><rect width=\"30\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" rx=\"7\"/><circle cx=\"24\" cy=\"8\" r=\"5\" fill=\"#fff\"/></g></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_g2386"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_v65ky"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_dreyf"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".37\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_hj1qg"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"4\" height=\"8\"><path fill=\"#fff\" fill-opacity=\".25\" d=\"M1 0h2v16H1z\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d38nh"]
+content_margin_left = 4.0
+content_margin_top = 55.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ke2w"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.85490197, 0.8862745, 0.8784314, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="DPITexture" id="DPITexture_upxu4"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_dpoxm"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_fgdq3"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".37\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="DPITexture" id="DPITexture_8x3gw"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"4\" height=\"8\"><path fill=\"#fff\" fill-opacity=\".25\" d=\"M1 0h2v16H1z\"/></svg>
+"
+base_scale = 7.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dyqi"]
+content_margin_left = 4.0
+content_margin_top = 55.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Main" type="Control" unique_id=428362994 node_paths=PackedStringArray("rain_shader_rect")]
 layout_mode = 3
@@ -91,99 +224,133 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -924.0
-offset_top = -81.0
-offset_right = -723.0
+offset_left = -920.0
+offset_top = -120.0
+offset_right = -631.0
 offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.41365287, 0.40732726, 0.3560087, 1)
+theme_override_colors/font_color = Color(0.38431373, 0.5176471, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("5_iweig")
-theme_override_font_sizes/font_size = 84
+theme_override_font_sizes/font_size = 140
 text = "Swipe"
 
 [node name="MenuButton" type="Button" parent="." unique_id=836890765]
 layout_mode = 0
 offset_left = 54.0
 offset_top = 53.0
-offset_right = 146.0
+offset_right = 224.0
 offset_bottom = 145.0
 script = ExtResource("9_gj8sf")
 
-[node name="Settings_Panel" type="Panel" parent="MenuButton" unique_id=553797314]
+[node name="Settings_Panel" type="ColorRect" parent="MenuButton" unique_id=125808883]
 layout_mode = 1
 offset_left = 2.0
 offset_top = 123.0
-offset_right = 449.0
-offset_bottom = 868.0
+offset_right = 1154.0
+offset_bottom = 947.0
+color = Color(0.29803923, 0.29803923, 0.29803923, 0.40392157)
 
-[node name="Label2" type="Label" parent="MenuButton/Settings_Panel" unique_id=1249242555]
-layout_mode = 0
-offset_left = 33.0
-offset_top = 42.0
-offset_right = 412.0
-offset_bottom = 95.0
+[node name="VBoxContainer4" type="VBoxContainer" parent="MenuButton/Settings_Panel" unique_id=1970328041]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -372.5
+offset_right = 523.0
+offset_bottom = 391.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 109
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MenuButton/Settings_Panel/VBoxContainer4" unique_id=131857776]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer2" unique_id=1436218344]
+layout_mode = 2
+theme_override_constants/separation = 394
+
+[node name="Label2" type="Label" parent="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer2/HBoxContainer" unique_id=1249242555]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.8117647, 0.8784314, 0.7647059, 1)
 theme_override_fonts/font = ExtResource("5_iweig")
-theme_override_font_sizes/font_size = 41
+theme_override_font_sizes/font_size = 140
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0hart")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qhjbv")
 text = "Thunder"
 
-[node name="ThunderFreq" type="HSlider" parent="MenuButton/Settings_Panel" unique_id=424841274]
-layout_mode = 0
-offset_left = 101.0
-offset_top = 194.0
-offset_right = 258.01648
-offset_bottom = 210.0
-scale = Vector2(1.941704, 1.8400012)
+[node name="CheckButton" type="CheckButton" parent="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer2/HBoxContainer" unique_id=500234226]
+layout_mode = 2
+theme_override_icons/checked = SubResource("DPITexture_0hart")
+theme_override_icons/unchecked = SubResource("DPITexture_6dyqi")
+theme_override_icons/checked_disabled = SubResource("DPITexture_5ke2w")
+theme_override_icons/unchecked_disabled = SubResource("DPITexture_fd8rw")
+theme_override_icons/checked_mirrored = SubResource("DPITexture_qhjbv")
+theme_override_icons/checked_disabled_mirrored = SubResource("DPITexture_d38nh")
+theme_override_icons/unchecked_disabled_mirrored = SubResource("DPITexture_e1oqt")
+button_pressed = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuButton/Settings_Panel/VBoxContainer4" unique_id=943042342]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer" unique_id=26905117]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8117647, 0.8784314, 0.7647059, 1)
+theme_override_fonts/font = ExtResource("5_iweig")
+theme_override_font_sizes/font_size = 140
+text = "Thunder Frequency"
+
+[node name="ThunderFreq" type="HSlider" parent="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer" unique_id=424841274]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("DPITexture_g2386")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_v65ky")
+theme_override_icons/grabber_disabled = SubResource("DPITexture_dreyf")
+theme_override_icons/tick = SubResource("DPITexture_hj1qg")
+theme_override_styles/slider = SubResource("StyleBoxFlat_d38nh")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_5ke2w")
 max_value = 10.0
 value = 3.0
 rounded = true
 
-[node name="Label3" type="Label" parent="MenuButton/Settings_Panel" unique_id=335080894]
-layout_mode = 0
-offset_left = 47.0
-offset_top = 330.0
-offset_right = 272.0
-offset_bottom = 359.0
+[node name="VBoxContainer3" type="VBoxContainer" parent="MenuButton/Settings_Panel/VBoxContainer4" unique_id=591478132]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer3" unique_id=1580478754]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="Label3" type="Label" parent="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer3/HBoxContainer" unique_id=335080894]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.8117647, 0.8784314, 0.7647059, 1)
 theme_override_fonts/font = ExtResource("5_iweig")
-theme_override_font_sizes/font_size = 41
+theme_override_font_sizes/font_size = 140
 text = "ScreenOff Time"
 
-[node name="ScreenOffSlider" type="HSlider" parent="MenuButton/Settings_Panel" unique_id=44632471]
-layout_mode = 0
-offset_left = 101.0
-offset_top = 386.0
-offset_right = 258.01648
-offset_bottom = 402.0
-scale = Vector2(1.941704, 1.8400012)
-max_value = 7.0
-value = 1.0
-
-[node name="Label" type="Label" parent="MenuButton/Settings_Panel" unique_id=26905117]
-layout_mode = 0
-offset_left = 33.0
-offset_top = 155.0
-offset_right = 412.0
-offset_bottom = 208.0
+[node name="ScreenOFFTime" type="Label" parent="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer3/HBoxContainer" unique_id=1758112915]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.8117647, 0.8784314, 0.7647059, 1)
 theme_override_fonts/font = ExtResource("5_iweig")
-theme_override_font_sizes/font_size = 41
-text = "Thunder Frequency"
+theme_override_font_sizes/font_size = 140
+text = "Time"
 
-[node name="CheckButton" type="CheckButton" parent="MenuButton/Settings_Panel" unique_id=500234226]
-layout_mode = 0
-offset_left = 181.00003
-offset_top = 34.0
-offset_right = 225.00003
-offset_bottom = 58.0
-scale = Vector2(2.48, 2.48)
-button_pressed = true
+[node name="ScreenOffSlider" type="HSlider" parent="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer3" unique_id=44632471]
+layout_mode = 2
+theme_override_icons/grabber = SubResource("DPITexture_upxu4")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_dpoxm")
+theme_override_icons/grabber_disabled = SubResource("DPITexture_fgdq3")
+theme_override_icons/tick = SubResource("DPITexture_8x3gw")
+theme_override_styles/slider = SubResource("StyleBoxFlat_6dyqi")
+max_value = 7.0
+script = ExtResource("10_0hart")
 
 [node name="ScreenTimeoutTimer" type="Timer" parent="MenuButton" unique_id=215868806]
 wait_time = 10.0
 
 [connection signal="pressed" from="MenuButton" to="MenuButton" method="_on_pressed"]
 [connection signal="toggled" from="MenuButton" to="MenuButton" method="_on_toggled"]
-[connection signal="value_changed" from="MenuButton/Settings_Panel/ThunderFreq" to="." method="_on_thunder_freq_value_changed"]
-[connection signal="toggled" from="MenuButton/Settings_Panel/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer2/HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer/ThunderFreq" to="." method="_on_thunder_freq_value_changed"]
+[connection signal="value_changed" from="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer3/ScreenOffSlider" to="MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer3/ScreenOffSlider" method="_on_value_changed"]

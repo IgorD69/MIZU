@@ -9,7 +9,7 @@ extends Control
 @onready var thunder_timer: Timer = $ThunderTimer
 @onready var thunder_sound_player: AudioStreamPlayer = $ThunderSoundPlayer
 
-@onready var thunder_freq: HSlider = $MenuButton/Settings_Panel/ThunderFreq
+@onready var thunder_freq: HSlider = $MenuButton/Settings_Panel/VBoxContainer4/VBoxContainer/ThunderFreq
 
 var thunder_freq_amount: float = 2
 var speed_min : float = 1.0
@@ -31,12 +31,11 @@ var volume_max: float = 0
 var pitch_min : float = 0.1
 var pitch_max : float = 1.2
 
-var far_length_min : float = 0.01
+var far_length_min : float = 0.05
 var far_length_max : float = 0.1
 
-var near_length_min : float = 0.01
+var near_length_min : float = 0.05
 var near_length_max : float = 0.1
-
 
 
 func _ready():
@@ -44,6 +43,8 @@ func _ready():
 	if material:
 		var current_speed = material.get_shader_parameter("base_rain_speed")
 		_update_audio_pitch(current_speed)
+		material.set_shader_parameter("far_rain_length", far_length_min)
+		material.set_shader_parameter("near_rain_length", near_length_min)
 
 	thunder_timer.timeout.connect(_on_thunder_timer_timeout)
 	thunder_timer.start(thunder_freq_amount)
@@ -74,7 +75,7 @@ func _input(event):
 func _handle_rain_drag(event: InputEventScreenDrag, material: ShaderMaterial) -> void:
 	var rel = event.relative
 	
-	## Vetrical Movment
+	## Vertical Movement
 	if abs(rel.y) > abs(rel.x):
 		var current_speed = material.get_shader_parameter("base_rain_speed")
 		var new_speed = clamp(current_speed + rel.y * drag_sensitivity_vertical, speed_min, speed_max)
@@ -87,14 +88,11 @@ func _handle_rain_drag(event: InputEventScreenDrag, material: ShaderMaterial) ->
 		_update_audio_pitch(new_speed)
 		
 		
-	## Horizontal Movment
+	## Horizontal Movement
 	else:
 		var current_slant = material.get_shader_parameter("slant")
 		var new_slant = clamp(current_slant + rel.x * drag_sensitivity_horizontal, slant_min, slant_max)
 		
-		if abs(new_slant) < 0.001:
-			new_slant = 0.001 if new_slant >= 0 else -0.001
-			
 		var slant_t = abs(new_slant) / slant_max
 		var new_far_length = lerp(far_length_min, far_length_max, slant_t)
 		var new_near_length = lerp(near_length_min, near_length_max, slant_t)
@@ -122,7 +120,12 @@ func _on_thunder_freq_value_changed(value: float) -> void:
 	var min_thunder_time = 3.0 
 	var max_thunder_time = 30.0
 	
-	thunder_freq_amount = remap(value, 1.0, 5.0, max_thunder_time, min_thunder_time)
+	var calcul_timp = remap(value, 1.0, 5.0, max_thunder_time, min_thunder_time)
+	
+	if value == 0:
+		thunder_timer.stop()
+		return
+	thunder_freq_amount = clamp(calcul_timp, min_thunder_time, max_thunder_time)
 	
 	thunder_timer.wait_time = thunder_freq_amount
 	
@@ -135,5 +138,3 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 		thunder_timer.start(thunder_freq_amount)
 	else:
 		thunder_timer.stop()
-		
-		

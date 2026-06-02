@@ -1,18 +1,13 @@
 extends Button
 
-@onready var settings_panel: Panel = $Settings_Panel
-@onready var screen_timeout_timer: Timer = $ScreenTimeoutTimer
+@onready var settings_panel: ColorRect = $Settings_Panel
 var panel_tween: Tween
 
 
 func _ready() -> void:
 	toggle_mode = true
 	settings_panel.visible = false
-	screen_timeout_timer.timeout.connect(_on_screen_timeout_timer_timeout)
 	
-
-#func _on_toggled(toggled_on: bool) -> void:
-	#settings_panel.visible = toggled_on
 
 
 func _on_pressed() -> void:
@@ -42,25 +37,3 @@ func _on_pressed() -> void:
 		panel_tween.chain().tween_callback(func(): settings_panel.visible = false)
 		
 		
-func seteaza_timp_ecran_aprins(minutes: float) -> void:
-	if minutes > 0:
-		DisplayServer.screen_set_keep_on(true)
-		
-		var seconds = minutes * 60.0
-		screen_timeout_timer.start(seconds)
-		print("Ecranul va rămâne aprins pentru ", minutes, " minute.")
-		
-	else:
-		screen_timeout_timer.stop()
-		DisplayServer.screen_set_keep_on(false)
-
-func _on_screen_timeout_timer_timeout() -> void:
-	print("Timpul a expirat. Ecranul se poate stinge acum.")
-	DisplayServer.screen_set_keep_on(false)
-
-
-func _process(delta: float) -> void:
-	if not screen_timeout_timer.is_stopped():
-		var timp_ramas_seconds = screen_timeout_timer.time_left
-		var minute_remain = int(timp_ramas_seconds / 60)
-		var seconds_remain = int(timp_ramas_seconds) % 60
