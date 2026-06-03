@@ -29,5 +29,16 @@ func _process(_delta: float) -> void:
 		screen_off_time.text = "%02d:%02d" % [minutes_remain, seconds_remain]
 
 func _on_value_changed(value: float) -> void:
-	if value == 0: screen_off_time.text = "TIME"
-	set_display_off_timer(value)
+	var new_parse_value: float
+	
+	if value == 1: new_parse_value = 1
+	elif value == 2: new_parse_value = 5
+	elif value == 3: new_parse_value = 10
+	elif value == 4: new_parse_value = 20
+	elif value == 5: new_parse_value = 45
+	elif value == 6: new_parse_value = 60
+	
+	screen_off_time.text = str(new_parse_value)
+	if value == 0: screen_off_time.text = ""
+	
+	set_display_off_timer(new_parse_value)

@@ -1,6 +1,6 @@
 extends Button
 
-@onready var settings_panel: ColorRect = $Settings_Panel
+@onready var settings_panel: Panel = $Settings_Panel
 var panel_tween: Tween
 
 

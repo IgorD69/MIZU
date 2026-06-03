@@ -120,12 +120,12 @@ func _on_thunder_freq_value_changed(value: float) -> void:
 	var min_thunder_time = 3.0 
 	var max_thunder_time = 30.0
 	
-	var calcul_timp = remap(value, 1.0, 5.0, max_thunder_time, min_thunder_time)
+	var time_calc = remap(value, 1.0, 5.0, max_thunder_time, min_thunder_time)
 	
 	if value == 0:
 		thunder_timer.stop()
 		return
-	thunder_freq_amount = clamp(calcul_timp, min_thunder_time, max_thunder_time)
+	thunder_freq_amount = clamp(time_calc, min_thunder_time, max_thunder_time)
 	
 	thunder_timer.wait_time = thunder_freq_amount
 	
