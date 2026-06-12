@@ -1,0 +1,248 @@
+[gd_scene format=3 uid="uid://cao5k1nayiqyg"]
+
+[ext_resource type="Script" uid="uid://dtp8mcjl5dp88" path="res://Scripts_Sport/workout_scene.gd" id="1_ha1bh"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ha1bh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ha1bh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d8rh0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6d436"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_syuu2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_of1xw"]
+
+[sub_resource type="Theme" id="Theme_7144w"]
+VScrollBar/icons/decrement = SubResource("ImageTexture_ha1bh")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_ha1bh")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_ha1bh")
+VScrollBar/icons/increment = SubResource("ImageTexture_ha1bh")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_ha1bh")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_ha1bh")
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_ha1bh")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_d8rh0")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_6d436")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_syuu2")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_of1xw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8rh0"]
+bg_color = Color(0.9372549, 0.827451, 0.84313726, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+shadow_size = 14
+shadow_offset = Vector2(0, 11.24)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6d436"]
+bg_color = Color(0.79607844, 0.7529412, 0.827451, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlmhn"]
+bg_color = Color(0.79607844, 0.7529412, 0.827451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ha1bh"]
+bg_color = Color(0.79607844, 0.7529412, 0.827451, 1)
+
+[node name="Control" type="Control" unique_id=1110971832]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ha1bh")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1384990301]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.99607843, 0.91764706, 0.98039216, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=174357083]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 70.0
+offset_top = 297.0
+offset_right = -50.0
+offset_bottom = -254.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7144w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=976644997]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 57
+
+[node name="Cards" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=2000183538]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Cards" unique_id=496890941]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 24.0
+offset_right = 398.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 83
+text = "Workout"
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/Cards" unique_id=752376794]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 258.0
+offset_right = 220.09677
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_6d436")
+text = "+ Add"
+
+[node name="Cards2" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=1178603238]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Cards2" unique_id=726969561]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 24.0
+offset_right = 398.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 83
+text = "Weight"
+
+[node name="Cards3" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=945297963]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Cards3" unique_id=453077862]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 24.0
+offset_right = 398.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 83
+text = "Measurements"
+
+[node name="Cards4" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=1112533495]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Cards4" unique_id=857774546]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 24.0
+offset_right = 398.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 83
+text = "Calendar"
+
+[node name="TopPanel" type="Panel" parent="." unique_id=1445616315]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 220.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rlmhn")
+
+[node name="Label" type="Label" parent="TopPanel" unique_id=403444526]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 20.0
+offset_right = 593.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 120
+text = "SetSync"
+
+[node name="Button" type="Button" parent="TopPanel" unique_id=1220944869]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 47.0
+offset_right = 1250.0
+offset_bottom = 388.0
+scale = Vector2(0.4182067, 0.4182067)
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 65
+text = "Settings"
+
+[node name="BottomPanel" type="Panel" parent="." unique_id=743867729]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -540.0
+offset_top = -206.0
+offset_right = 540.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_rlmhn")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomPanel" unique_id=444144986]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HomeBTN" type="Button" parent="BottomPanel/HBoxContainer" unique_id=2026708022]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 68
+theme_override_styles/normal = SubResource("StyleBoxFlat_ha1bh")
+text = "Home"
+
+[node name="WorkounBTN" type="Button" parent="BottomPanel/HBoxContainer" unique_id=1286521320]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 68
+theme_override_styles/normal = SubResource("StyleBoxFlat_ha1bh")
+text = "Workout"

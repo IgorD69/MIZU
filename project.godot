@@ -10,22 +10,22 @@ config_version=5
 
 [application]
 
-config/name="MIZU"
-run/main_scene="uid://bxldkfmb8ykr"
+config/name="Sport"
+run/main_scene="uid://cao5k1nayiqyg"
 config/features=PackedStringArray("4.6", "Forward Plus")
-run/max_fps=120
+run/max_fps=144
 run/low_processor_mode=true
 boot_splash/bg_color=Color(0.4392157, 0.6627451, 0.6313726, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+boot_splash/stretch_mode=0
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
+window/size/viewport_width=1080
+window/size/viewport_height=1920
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [input_devices]
 
