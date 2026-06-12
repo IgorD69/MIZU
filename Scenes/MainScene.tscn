@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://cao5k1nayiqyg"]
+
+[ext_resource type="Script" uid="uid://dtp8mcjl5dp88" path="res://Scripts_Sport/workout_scene.gd" id="1_hpc76"]
+[ext_resource type="PackedScene" uid="uid://c1xretupl58vf" path="res://Scenes/main_cards.tscn" id="2_tr2i4"]
+[ext_resource type="PackedScene" uid="uid://bebbsfjm63qrt" path="res://Scenes/workouts_page.tscn" id="3_nhkr4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rlmhn"]
+bg_color = Color(0.79607844, 0.7529412, 0.827451, 1)
+border_width_bottom = 10
+border_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6d436"]
+bg_color = Color(0.79607844, 0.7529412, 0.827451, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_syuu2"]
+bg_color = Color(0.79607844, 0.7529412, 0.827451, 1)
+border_width_top = 10
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_of1xw"]
+bg_color = Color(0.5376035, 0.47261006, 0.5832624, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7144w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ebvsb"]
+
+[node name="MainScene" type="Control" unique_id=1110971832]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hpc76")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1384990301]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.99607843, 0.91764706, 0.98039216, 1)
+
+[node name="CardsNode" type="Control" parent="." unique_id=623629586]
+anchors_preset = 0
+offset_left = 70.0
+offset_top = 296.0
+offset_right = 986.0
+offset_bottom = 1641.0
+
+[node name="MainCards" parent="CardsNode" unique_id=1644873641 instance=ExtResource("2_tr2i4")]
+visible = false
+layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="WorkoutScene" parent="CardsNode" unique_id=487304277 instance=ExtResource("3_nhkr4")]
+layout_mode = 1
+
+[node name="TopPanel" type="Panel" parent="." unique_id=1445616315]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_right = 540.0
+offset_bottom = 220.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rlmhn")
+
+[node name="Button" type="Button" parent="TopPanel" unique_id=2147039282]
+layout_mode = 0
+offset_left = 839.0
+offset_top = 73.0
+offset_right = 1010.0968
+offset_bottom = 175.0
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_6d436")
+
+[node name="Label" type="Label" parent="TopPanel" unique_id=403444526]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 20.0
+offset_right = 593.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 120
+text = "GSet"
+
+[node name="BottomPanel" type="Panel" parent="." unique_id=743867729]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -540.0
+offset_top = -206.0
+offset_right = 540.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_syuu2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomPanel" unique_id=444144986]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -523.0
+offset_top = -195.0
+offset_right = 524.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 13
+
+[node name="HomeBTN" type="Button" parent="BottomPanel/HBoxContainer" unique_id=501913765]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_6d436")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_of1xw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_of1xw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7144w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ebvsb")
+text = "Home"
+
+[node name="WorkounBTN" type="Button" parent="BottomPanel/HBoxContainer" unique_id=665044477]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_6d436")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_of1xw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_of1xw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7144w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ebvsb")
+text = "Workout"
+
+[connection signal="pressed" from="BottomPanel/HBoxContainer/HomeBTN" to="." method="_on_home_btn_pressed"]
+[connection signal="pressed" from="BottomPanel/HBoxContainer/WorkounBTN" to="." method="_on_workoun_btn_pressed"]

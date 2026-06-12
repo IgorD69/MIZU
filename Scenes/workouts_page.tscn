@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://bebbsfjm63qrt"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ha1bh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ha1bh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d8rh0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6d436"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_syuu2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_of1xw"]
+
+[sub_resource type="Theme" id="Theme_7144w"]
+VScrollBar/icons/decrement = SubResource("ImageTexture_ha1bh")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_ha1bh")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_ha1bh")
+VScrollBar/icons/increment = SubResource("ImageTexture_ha1bh")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_ha1bh")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_ha1bh")
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_ha1bh")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_d8rh0")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_6d436")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_syuu2")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_of1xw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6d436"]
+bg_color = Color(0.79607844, 0.7529412, 0.827451, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_of1xw"]
+bg_color = Color(0.5376035, 0.47261006, 0.5832624, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7144w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ebvsb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d8rh0"]
+bg_color = Color(0.9372549, 0.827451, 0.84313726, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+shadow_size = 2
+shadow_offset = Vector2(0, 11.24)
+
+[node name="WorkoutScene" type="Control" unique_id=1110971832]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=174357083]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7144w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=976644997]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 57
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer" unique_id=752376794]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5568628, 0.6039216, 0.6862745, 1)
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_6d436")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_of1xw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_of1xw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7144w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ebvsb")
+text = "Create Workout"
+autowrap_mode = 2
+
+[node name="Cards" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=2000183538]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
+
+[node name="Cards2" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=1178603238]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
+
+[node name="Cards3" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=945297963]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
+
+[node name="Cards4" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=592175968]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
+
+[node name="Cards5" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=1584224046]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
+
+[node name="Cards6" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=2113042704]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
+
+[node name="Cards7" type="Panel" parent="ScrollContainer/VBoxContainer" unique_id=1114376809]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d8rh0")
